@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://rinh.github.com/atom.xml" rel="self"/>
   <link href="http://rinh.github.com/"/>
-  <updated>2012-08-10T15:44:45+08:00</updated>
+  <updated>2012-08-10T15:58:18+08:00</updated>
   <id>http://rinh.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[开始octopress之旅]]></title>
+    <link href="http://rinh.github.com/blog/2012/08/10/kai-shi-octopresszhi-lu/"/>
+    <updated>2012-08-10T15:55:00+08:00</updated>
+    <id>http://rinh.github.com/blog/2012/08/10/kai-shi-octopresszhi-lu</id>
+    <content type="html"><![CDATA[<p>折腾了一下午,终于把基于octopress的环境搭起来了.</p>
+
+<p>不得不说, octopress + github + sublime text 2 简直就是利器.</p>
+
+<p>发第一篇文章纪念一下.</p>
+]]></content>
+  </entry>
   
 </feed>
