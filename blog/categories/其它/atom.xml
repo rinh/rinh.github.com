@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[rinh]]></title>
-  <link href="http://rinh.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: 其它 | rinh]]></title>
+  <link href="http://rinh.github.com/blog/categories/其它/atom.xml" rel="self"/>
   <link href="http://rinh.github.com/"/>
   <updated>2012-08-11T23:29:20+08:00</updated>
   <id>http://rinh.github.com/</id>
@@ -26,10 +26,12 @@
 
 <p>顺便测试一下代码语法高亮(pygments)</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;hello octopress!&#39;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>```js</p>
 
+<pre><code>alert('hello octopress!');
+</code></pre>
+
+<p>```</p>
 ]]></content>
   </entry>
   
