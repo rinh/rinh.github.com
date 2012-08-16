@@ -9,8 +9,8 @@
   <meta name="author" content="rinh">
 
   
-  <meta name="description" content="折腾了一下午,终于把基于octopress的环境搭起来了. 不得不说, octopress + github + sublime text 2 简直就是利器. 发第一篇文章纪念一下. 顺便测试一下代码语法高亮(pygments) 1
-alert(&#39;hello octopress!&#39 &hellip;">
+  <meta name="description" content="首先,需要确认Centos版本 cat /etc/issue 然后安装RHEL与EPEL的yum源 参考 centos 5.x $ wget http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+$ wget &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,68 @@ alert(&#39;hello octopress!&#39 &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/16/zai-centosshang-an-zhuang-git/">在Centos上安装git</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-16T11:00:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/08/16/zai-centosshang-an-zhuang-git/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>首先,需要确认Centos版本</p>
+
+<pre><code>cat /etc/issue
+</code></pre>
+
+<p>然后安装RHEL与EPEL的yum源 <a href="http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x">参考</a></p>
+
+<p>centos 5.x</p>
+
+<pre><code>$ wget http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+$ wget http://rpms.famillecollet.com/enterprise/remi-release-5.rpm
+$ sudo rpm -Uvh remi-release-5*.rpm epel-release-5*.rpm
+</code></pre>
+
+<p>centos 6.x</p>
+
+<pre><code>$ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-7.noarch.rpm
+$ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+$ sudo rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
+</code></pre>
+
+<p>然后就可以使用啦</p>
+
+<pre><code>yum install git
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -126,6 +188,10 @@ alert(&#39;hello octopress!&#39 &hellip;">
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/08/16/zai-centosshang-an-zhuang-git/">在Centos上安装git</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/08/10/kai-shi-octopresszhi-lu/">开始octopress之旅</a>

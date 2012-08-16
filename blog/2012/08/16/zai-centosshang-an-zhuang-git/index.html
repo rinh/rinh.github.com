@@ -5,13 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - rinh</title>
+  <title>在Centos上安装git - rinh</title>
   <meta name="author" content="rinh">
 
   
-  <meta name="description" content="Blog Archive 2012 在Centos上安装git
-Aug 16 2012 posted in 操作系统 开始octopress之旅
-Aug 10 2012 posted in 其它 Recent Posts 在Centos上安装git 开始octopress之旅 新浪微博 < &hellip;">
+  <meta name="description" content="首先,需要确认Centos版本 cat /etc/issue 然后安装RHEL与EPEL的yum源 参考 centos 5.x $ wget http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+$ wget &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +19,7 @@ Aug 10 2012 posted in 其它 Recent Posts 在Centos上安装git 开始octopress�
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rinh.github.com/blog/archives/">
+  <link rel="canonical" href="http://rinh.github.com/blog/2012/08/16/zai-centosshang-an-zhuang-git/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -65,50 +64,115 @@ Aug 10 2012 posted in 其它 Recent Posts 在Centos上安装git 开始octopress�
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">在Centos上安装git</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-16T11:00:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>首先,需要确认Centos版本</p>
 
-  
-  <h2>2012</h2>
+<pre><code>cat /etc/issue
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2012/08/16/zai-centosshang-an-zhuang-git/">在Centos上安装git</a></h1>
-<time datetime="2012-08-16T11:00:00+08:00" pubdate><span class='month'>Aug</span> <span class='day'>16</span> <span class='year'>2012</span></time>
+<p>然后安装RHEL与EPEL的yum源 <a href="http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x">参考</a></p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/操作系统/'>操作系统</a></span>
-</footer>
+<p>centos 5.x</p>
 
+<pre><code>$ wget http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+$ wget http://rpms.famillecollet.com/enterprise/remi-release-5.rpm
+$ sudo rpm -Uvh remi-release-5*.rpm epel-release-5*.rpm
+</code></pre>
 
-</article>
+<p>centos 6.x</p>
 
+<pre><code>$ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-7.noarch.rpm
+$ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+$ sudo rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
+</code></pre>
 
+<p>然后就可以使用啦</p>
 
-<article>
-  
-<h1><a href="/blog/2012/08/10/kai-shi-octopresszhi-lu/">开始octopress之旅</a></h1>
-<time datetime="2012-08-10T15:55:00+08:00" pubdate><span class='month'>Aug</span> <span class='day'>10</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/其它/'>其它</a></span>
-</footer>
-
-
-</article>
-
+<pre><code>yum install git
+</code></pre>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">rinh</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-16T11:00:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/操作系统/'>操作系统</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/08/10/kai-shi-octopresszhi-lu/" title="Previous Post: 开始octopress之旅">&laquo; 开始octopress之旅</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -168,7 +232,10 @@ Aug 10 2012 posted in 其它 Recent Posts 在Centos上安装git 开始octopress�
       var disqus_shortname = 'rinh';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://rinh.github.com/blog/2012/08/16/zai-centosshang-an-zhuang-git/';
+        var disqus_url = 'http://rinh.github.com/blog/2012/08/16/zai-centosshang-an-zhuang-git/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
