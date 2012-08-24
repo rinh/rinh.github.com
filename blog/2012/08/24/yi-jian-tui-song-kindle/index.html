@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>在Centos上安装git - rinh</title>
+  <title>一键推送kindle - rinh</title>
   <meta name="author" content="rinh">
 
   
-  <meta name="description" content="首先,需要确认Centos版本 cat /etc/issue 然后安装RHEL与EPEL的yum源 参考 centos 5.x $ wget http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
-$ wget &hellip;">
+  <meta name="description" content="自从入手Kindle以来, 就不断折腾中&#8230; Kindle推送的方案真是好, 以至于可以完全脱离开USB数据线, 想看什么书只要推送即可. 想学习如何设置推送可以看这里preview, 当然使用&#8221;多看&#8221;系统的话更方便. 有了方便的功能, 就会变得更懒, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ $ wget &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rinh.github.com/blog/2012/08/16/zai-centosshang-an-zhuang-git/">
+  <link rel="canonical" href="http://rinh.github.com/blog/2012/08/24/yi-jian-tui-song-kindle/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +67,7 @@ $ wget &hellip;">
   
   <header>
     
-      <h1 class="entry-title">在Centos上安装git</h1>
+      <h1 class="entry-title">一键推送kindle</h1>
     
     
       <p class="meta">
@@ -84,7 +83,7 @@ $ wget &hellip;">
   
 
 
-<time datetime="2012-08-16T11:00:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2012</time>
+<time datetime="2012-08-24T16:01:00+08:00" pubdate data-updated="true">Aug 24<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -93,31 +92,48 @@ $ wget &hellip;">
   </header>
 
 
-<div class="entry-content"><p>首先,需要确认Centos版本</p>
+<div class="entry-content"><p>自从入手Kindle以来, 就不断折腾中&#8230;</p>
 
-<pre><code>cat /etc/issue
+<p>Kindle推送的方案真是好, 以至于可以完全脱离开USB数据线, 想看什么书只要推送即可.</p>
+
+<p>想学习如何设置推送可以看<a href="http://www.xiaozhou.net/kindle/register_and_activate_your_kindle-2012-01-12.htm">这里</a>preview, 当然使用&#8221;多看&#8221;系统的话更方便.</p>
+
+<p>有了方便的功能, 就会变得更懒, 于是开始琢磨如何在mac上, 一键推送书籍.</p>
+
+<p>打开Automator, 选择<code>服务</code> , <code>文件或文件夹</code> , <code>任何应用程序</code></p>
+
+<p>然后将<code>Run AppleScript</code> 拖放进来.</p>
+
+<pre><code>on run {input, parameters}
+    set theSender to "这里是你的发送邮箱"
+    set theRecipient to "这里是kindle的推送邮箱"
+
+    tell application "Mail"
+        set mymail to make new outgoing message with properties {subject:"mail"}
+        tell mymail
+            set sender to theSender
+            make new to recipient with properties {address:theRecipient}
+            tell content
+                repeat with theFileName in input
+                    make new attachment with properties {file name:theFileName} at after the last word of the last paragraph
+                end repeat
+            end tell
+            send
+        end tell
+    end tell
+
+    return input
+end run
 </code></pre>
 
-<p>然后安装RHEL与EPEL的yum源 <a href="http://www.rackspace.com/knowledge_center/article/installing-rhel-epel-repo-on-centos-5x-or-6x">参考</a></p>
+<p>保存脚本为<code>一键推送kindle</code></p>
 
-<p>centos 5.x</p>
+<p>好了, 打开Finder看看吧, 随便选择一个文件, 右键<code>服务</code>, 就会找到这个功能.</p>
 
-<pre><code>$ wget http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
-$ wget http://rpms.famillecollet.com/enterprise/remi-release-5.rpm
-$ sudo rpm -Uvh remi-release-5*.rpm epel-release-5*.rpm
-</code></pre>
+<ul>
+<li>遇到一个问题就是, 我的系统语言为English, 发送中文名的epub到kindle中就是正常. 如果设置系统语言为简体中文, 则会乱码, 不知道为啥</li>
+</ul>
 
-<p>centos 6.x</p>
-
-<pre><code>$ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-7.noarch.rpm
-$ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-$ sudo rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
-</code></pre>
-
-<p>然后就可以使用啦</p>
-
-<pre><code>yum install git
-</code></pre>
 </div>
 
 
@@ -140,12 +156,12 @@ $ sudo rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
   
 
 
-<time datetime="2012-08-16T11:00:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2012</time>
+<time datetime="2012-08-24T16:01:00+08:00" pubdate data-updated="true">Aug 24<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/操作系统/'>操作系统</a>
+    <a class='category' href='/blog/categories/applescript/'>applescript</a>, <a class='category' href='/blog/categories/kindle/'>kindle</a>, <a class='category' href='/blog/categories/mac/'>mac</a>
   
 </span>
 
@@ -161,10 +177,8 @@ $ sudo rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/08/10/kai-shi-octopresszhi-lu/" title="Previous Post: 开始octopress之旅">&laquo; 开始octopress之旅</a>
+        <a class="basic-alignment left" href="/blog/2012/08/16/zai-centosshang-an-zhuang-git/" title="Previous Post: 在Centos上安装git">&laquo; 在Centos上安装git</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/08/24/yi-jian-tui-song-kindle/" title="Next Post: 一键推送kindle">一键推送kindle &raquo;</a>
       
     </p>
   </footer>
@@ -239,8 +253,8 @@ $ sudo rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://rinh.github.com/blog/2012/08/16/zai-centosshang-an-zhuang-git/';
-        var disqus_url = 'http://rinh.github.com/blog/2012/08/16/zai-centosshang-an-zhuang-git/';
+        var disqus_identifier = 'http://rinh.github.com/blog/2012/08/24/yi-jian-tui-song-kindle/';
+        var disqus_url = 'http://rinh.github.com/blog/2012/08/24/yi-jian-tui-song-kindle/';
         var disqus_script = 'embed.js';
       
     (function () {
